@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Privacy Policy — EON</title>
+  <meta name="description" content="EON Privacy Policy — How we collect, use and protect your data."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Outfit:wght@200;300;400;500;600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --navy:#060912;--deep:#0a0f1e;--indigo:#0d1530;--mid:#162050;
+      --accent:#4f6ef7;--glow:#7b93ff;--gold:#c9a84c;--gold-lt:#e8c97a;
+      --text:#e8eaf6;--muted:#6b77a8;--soft:#9aa3cc;
+      --border:rgba(79,110,247,0.15);--border-gold:rgba(201,168,76,0.25);
+      --glass:rgba(13,21,48,0.65);--max-w:860px;
+    }
+    html{scroll-behavior:smooth}
+    body{background:var(--navy);color:var(--text);font-family:'Outfit',sans-serif;font-weight:300;overflow-x:hidden;cursor:none}
+
+    .cursor{position:fixed;width:10px;height:10px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);transition:width .2s,height .2s;mix-blend-mode:screen}
+    .cursor-ring{position:fixed;width:36px;height:36px;border:1px solid rgba(79,110,247,.5);border-radius:50%;pointer-events:none;z-index:99998;transform:translate(-50%,-50%);transition:width .25s,height .25s}
+    #starfield{position:fixed;inset:0;z-index:0;pointer-events:none}
+    .noise{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.032;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+    nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1.1rem clamp(1.5rem,4vw,4rem);background:linear-gradient(to bottom,rgba(6,9,18,.96) 60%,transparent);backdrop-filter:blur(2px)}
+    .nav-left{display:flex;align-items:center;gap:.85rem}
+    .nav-logo-img{width:34px;height:34px;border-radius:9px;object-fit:cover;border:1px solid rgba(79,110,247,.3);box-shadow:0 0 14px rgba(79,110,247,.22)}
+    .nav-logo-fallback{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--accent),#3a58e8);display:none;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:900;font-size:.95rem;color:#fff;border:1px solid rgba(79,110,247,.4)}
+    .nav-wordmark{font-family:'Playfair Display',serif;font-size:1.45rem;font-weight:900;letter-spacing:.08em;background:linear-gradient(135deg,#fff 30%,var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .nav-slogan{font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+    .nav-back{display:flex;align-items:center;gap:.5rem;padding:.5rem 1.3rem;border-radius:100px;background:rgba(79,110,247,.12);border:1px solid var(--border);color:var(--glow);font-size:.78rem;font-weight:500;text-decoration:none;letter-spacing:.04em;transition:background .2s,border-color .2s,transform .2s;white-space:nowrap}
+    .nav-back:hover{background:rgba(79,110,247,.22);border-color:rgba(79,110,247,.5);transform:translateY(-1px)}
+    @media(max-width:600px){.nav-slogan{display:none}}
+
+    .page{position:relative;z-index:2;padding-top:80px}
+
+    .pp-hero{max-width:var(--max-w);margin:0 auto;padding:clamp(3rem,6vh,5rem) clamp(1.5rem,4vw,3rem) clamp(2rem,4vh,3rem);text-align:center}
+    .pp-badge{display:inline-flex;align-items:center;gap:.5rem;padding:.35rem .9rem;border-radius:100px;border:1px solid var(--border-gold);background:rgba(201,168,76,.07);font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.6rem;animation:fadeUp .8s .1s both}
+    .pp-badge-dot{width:5px;height:5px;background:var(--gold);border-radius:50%;animation:pulse 2s infinite}
+    .pp-title{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,7vw,5.5rem);font-weight:900;line-height:.95;letter-spacing:-.02em;margin-bottom:1rem;animation:fadeUp .8s .2s both}
+    .pp-title-main{display:block;background:linear-gradient(135deg,#fff 20%,var(--glow) 60%,var(--gold) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .pp-title-sub{display:block;font-style:italic;font-weight:400;font-size:.38em;color:var(--muted);-webkit-text-fill-color:var(--muted);letter-spacing:.01em;margin-top:.8rem}
+    .pp-meta{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-top:1.2rem;animation:fadeUp .8s .35s both}
+
+    .pp-topbar{height:2px;background:linear-gradient(90deg,var(--accent),var(--glow),var(--gold),var(--glow),var(--accent));background-size:300% 100%;animation:shimmer-bar 2.4s linear infinite;max-width:var(--max-w);margin:0 auto clamp(2rem,4vh,3rem);border-radius:2px}
+
+    .pp-intro{max-width:var(--max-w);margin:0 auto clamp(2rem,4vw,3rem);padding:0 clamp(1.5rem,4vw,3rem)}
+    .intro-card{background:var(--glass);border:1px solid var(--border);border-radius:20px;padding:clamp(1.4rem,3vw,2rem) clamp(1.5rem,3vw,2.2rem);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:0 0 0 1px rgba(255,255,255,.04) inset,0 24px 48px rgba(0,0,0,.4);border-left:2px solid var(--accent);animation:fadeUp .8s .45s both}
+    .intro-card p{font-size:clamp(.84rem,1.5vw,.92rem);color:var(--soft);line-height:1.8;font-weight:300}
+
+    .pp-toc{max-width:var(--max-w);margin:0 auto clamp(2rem,4vw,3rem);padding:0 clamp(1.5rem,4vw,3rem)}
+    .toc-card{background:rgba(13,21,48,.5);border:1px solid var(--border-gold);border-radius:20px;padding:clamp(1.2rem,3vw,1.8rem) clamp(1.5rem,3vw,2.2rem);backdrop-filter:blur(12px)}
+    .toc-eyebrow{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:.7rem}
+    .toc-eyebrow::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--border-gold),transparent)}
+    .toc-grid{display:grid;grid-template-columns:1fr 1fr;gap:.4rem .8rem}
+    @media(max-width:520px){.toc-grid{grid-template-columns:1fr}}
+    .toc-item{display:flex;align-items:center;gap:.7rem;padding:.4rem .5rem;border-radius:8px;text-decoration:none;transition:background .2s}
+    .toc-item:hover{background:rgba(79,110,247,.08)}
+    .toc-num{font-family:'DM Mono',monospace;font-size:.56rem;color:var(--gold);opacity:.6;min-width:20px}
+    .toc-text{font-size:.8rem;color:var(--soft);transition:color .2s}
+    .toc-item:hover .toc-text{color:var(--text)}
+
+    .pp-body{max-width:var(--max-w);margin:0 auto;padding:0 clamp(1.5rem,4vw,3rem) clamp(4rem,8vh,7rem)}
+    .pp-section{margin-bottom:clamp(2.5rem,5vw,4rem);scroll-margin-top:100px}
+    .section-topline{display:flex;align-items:center;gap:1rem;margin-bottom:1.2rem}
+    .section-num{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.2em;color:var(--gold);opacity:.6;white-space:nowrap}
+    .section-rule{flex:1;height:1px;background:linear-gradient(90deg,var(--border),transparent)}
+
+    .pp-section h2{font-family:'Playfair Display',serif;font-size:clamp(1.4rem,3vw,1.9rem);font-weight:700;line-height:1.2;letter-spacing:-.01em;margin-bottom:1.1rem;background:linear-gradient(135deg,#fff 40%,var(--glow));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .pp-section h3{font-family:'Playfair Display',serif;font-size:clamp(1rem,2vw,1.2rem);font-weight:700;color:var(--text);margin:1.6rem 0 .7rem;font-style:italic}
+    .pp-section h4{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin:1.4rem 0 .6rem;opacity:.8}
+    .pp-section p{font-size:clamp(.82rem,1.4vw,.9rem);color:var(--soft);line-height:1.82;font-weight:300;margin-bottom:.9rem}
+
+    .pp-list{list-style:none;margin:.8rem 0 1rem}
+    .pp-list li{display:flex;align-items:flex-start;gap:.85rem;padding:.75rem 0;border-bottom:1px solid rgba(79,110,247,.08);font-size:clamp(.8rem,1.3vw,.87rem);color:var(--soft);line-height:1.65;font-weight:300}
+    .pp-list li:last-child{border-bottom:none}
+    .pp-list-arrow{color:var(--accent);font-size:.75rem;margin-top:.22rem;flex-shrink:0;opacity:.7}
+    .pp-list li strong{color:var(--text);font-weight:500;display:block;margin-bottom:.15rem}
+
+    .highlight-box{background:rgba(79,110,247,.05);border:1px solid rgba(79,110,247,.18);border-radius:14px;padding:clamp(1rem,2.5vw,1.5rem) clamp(1.2rem,2.5vw,1.6rem);margin:1rem 0}
+    .highlight-box p{margin-bottom:.5rem}
+    .highlight-box p:last-child{margin-bottom:0}
+
+    .pp-divider{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);margin:clamp(1.5rem,3vw,2.5rem) 0}
+
+    .contact-card{background:linear-gradient(135deg,rgba(13,21,48,.9),rgba(22,32,80,.7));border:1px solid var(--border-gold);border-radius:24px;padding:clamp(2rem,5vw,3.5rem);text-align:center;position:relative;overflow:hidden;box-shadow:0 0 0 1px rgba(255,255,255,.04) inset,0 32px 80px rgba(0,0,0,.5)}
+    .contact-card::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(79,110,247,.12),transparent 70%)}
+    .contact-card::after{content:'';position:absolute;bottom:-40px;left:-40px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,.08),transparent 70%)}
+    .contact-eyebrow{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;position:relative;z-index:1}
+    .contact-title{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,4vw,2.4rem);font-weight:900;line-height:1.1;margin-bottom:.8rem;position:relative;z-index:1;background:linear-gradient(135deg,#fff 30%,var(--glow) 65%,var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .contact-sub{font-size:clamp(.8rem,1.5vw,.88rem);color:var(--soft);line-height:1.7;margin-bottom:1.8rem;position:relative;z-index:1;font-weight:300}
+    .contact-email-btn{display:inline-flex;align-items:center;gap:.6rem;padding:.8rem 2rem;border-radius:100px;background:linear-gradient(135deg,var(--accent),#3a58e8);border:none;color:#fff;font-size:.85rem;font-weight:500;text-decoration:none;cursor:pointer;transition:transform .2s,box-shadow .2s;box-shadow:0 8px 28px rgba(79,110,247,.35);position:relative;z-index:1;font-family:'Outfit',sans-serif}
+    .contact-email-btn:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(79,110,247,.5)}
+
+    footer{position:relative;z-index:2;border-top:1px solid var(--border);padding:2rem clamp(1.5rem,4vw,3rem);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;max-width:1440px;margin:0 auto}
+    .footer-left{display:flex;align-items:center;gap:.75rem}
+    .footer-logo-img{width:28px;height:28px;border-radius:8px;object-fit:cover;border:1px solid rgba(79,110,247,.2)}
+    .footer-logo-fallback{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#3a58e8);display:none;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:900;font-size:.8rem;color:#fff}
+    .footer-wordmark{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:900;background:linear-gradient(135deg,#fff,var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .footer-copy{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.12em;color:var(--muted);opacity:.5}
+    .footer-slogan{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);opacity:.4}
+
+    .reveal{opacity:0;transform:translateY(22px);transition:opacity .75s ease,transform .75s ease}
+    .reveal.visible{opacity:1;transform:none}
+
+    @keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
+    @keyframes shimmer-bar{0%{background-position:0 0}100%{background-position:300% 0}}
+  </style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursor-ring"></div>
+<div class="noise"></div>
+<canvas id="starfield"></canvas>
+
+<nav>
+  <div class="nav-left">
+    <img class="nav-logo-img" id="nav-logo-img"
+         src="https://pub-1f514351881f45288b633b595c636fb4.r2.dev/eon_background.png" alt="EON"
+         onerror="this.style.display='none';document.getElementById('nav-logo-fb').style.display='flex'"/>
+    <div class="nav-logo-fallback" id="nav-logo-fb">E</div>
+    <div>
+      <div class="nav-wordmark">EON</div>
+      <div class="nav-slogan">Above · Beyond · Unlimited</div>
+    </div>
+  </div>
+  <a class="nav-back" href="javascript:history.back()">
+    <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M9 1L4 6.5 9 12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Back
+  </a>
+</nav>
+
+<div class="page">
+
+  <div class="pp-hero">
+    <div class="pp-badge"><div class="pp-badge-dot"></div>Legal · Data &amp; Privacy</div>
+    <h1 class="pp-title">
+      <span class="pp-title-main">Privacy<br/>Policy</span>
+      <span class="pp-title-sub">How we collect, use &amp; protect your data</span>
+    </h1>
+    <div class="pp-meta">Last updated · August 13, 2025</div>
+  </div>
+
+  <div class="pp-topbar"></div>
+
+  <div class="pp-intro reveal">
+    <div class="intro-card">
+      <p>This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You. We use Your Personal data to provide and improve the Service. By using the Service, You agree to the collection and use of information in accordance with this Privacy Policy.</p>
+    </div>
+  </div>
+
+  <div class="pp-toc reveal">
+    <div class="toc-card">
+      <div class="toc-eyebrow">Contents</div>
+      <div class="toc-grid">
+        <a class="toc-item" href="#definitions"><span class="toc-num">01</span><span class="toc-text">Interpretation &amp; Definitions</span></a>
+        <a class="toc-item" href="#data-collected"><span class="toc-num">02</span><span class="toc-text">Data We Collect</span></a>
+        <a class="toc-item" href="#use-of-data"><span class="toc-num">03</span><span class="toc-text">Use of Your Data</span></a>
+        <a class="toc-item" href="#retention"><span class="toc-num">04</span><span class="toc-text">Data Retention</span></a>
+        <a class="toc-item" href="#transfer"><span class="toc-num">05</span><span class="toc-text">Data Transfer</span></a>
+        <a class="toc-item" href="#delete"><span class="toc-num">06</span><span class="toc-text">Delete Your Data</span></a>
+        <a class="toc-item" href="#disclosure"><span class="toc-num">07</span><span class="toc-text">Disclosure</span></a>
+        <a class="toc-item" href="#security"><span class="toc-num">08</span><span class="toc-text">Security</span></a>
+        <a class="toc-item" href="#children"><span class="toc-num">09</span><span class="toc-text">Children's Privacy</span></a>
+        <a class="toc-item" href="#links"><span class="toc-num">10</span><span class="toc-text">External Links</span></a>
+        <a class="toc-item" href="#changes"><span class="toc-num">11</span><span class="toc-text">Policy Changes</span></a>
+        <a class="toc-item" href="#contact"><span class="toc-num">12</span><span class="toc-text">Contact Us</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="pp-body">
+
+    <div class="pp-section reveal" id="definitions">
+      <div class="section-topline"><span class="section-num">Section 01</span><div class="section-rule"></div></div>
+      <h2>Interpretation &amp; Definitions</h2>
+      <p>The words of which the initial letter is capitalized have meanings defined under the following conditions. The following definitions shall have the same meaning regardless of whether they appear in singular or in plural.</p>
+      <h3>Definitions</h3>
+      <ul class="pp-list">
+        <li><span class="pp-list-arrow">→</span><div><strong>Account</strong>A unique account created for You to access our Service or parts of our Service.</div></li>
+        <li><span class="pp-list-arrow">→</span><div><strong>Affiliate</strong>An entity that controls, is controlled by or is under common control with a party, where "control" means ownership of 50% or more of the shares, equity interest or other securities entitled to vote for election of directors or other managing authority.</div></li>
+        <li><span class="pp-list-arrow">→</span><div><strong>Application</strong>Refers to Eon, the software program provided by the Company.</div></li>
+        <li><span class="pp-list-arrow">→</span><div><strong>Company</strong>Referred to as either "the Company", "We", "Us" or "Our" in this Agreement — refers to Eon.</div></li>
+        <li><span class="pp-list-arrow">→</span><div><strong>Country</strong>Refers to Uganda.</div></li>
+        <li><span class="pp-list-arrow">→</span><div><strong>Device</strong>Any device that can access the Service such as a computer, a cellphone or a digital tablet.</div></li>
+        <li><span class="pp-list-arrow">→</span><div><strong>Personal Data</strong>Any information that relates to an identified or identifiable individual.</div></li>
+        <li><span class="pp-list-arrow">→</span><div><strong>Service</strong>Refers to the Application.</div></li>
+        <li><span class="pp-list-arrow">→</span><div><strong>Service Provider</strong>Any natural or legal person who processes the data on behalf of the Company. It refers to third-party companies or individuals employed by the Company to facilitate the Service.</div></li>
+        <li><span class="pp-list-arrow">→</span><div><strong>Usage Data</strong>Data collected automatically, either generated by the use of the Service or from the Service infrastructure itself (e.g. the duration of a page visit).</div></li>
+        <li><span class="pp-list-arrow">→</span><div><strong>You</strong>The individual accessing or using the Service, or the company or other legal entity on behalf of which such individual is accessing or using the Service.</div></li>
+      </ul>
+    </div>
+
+    <div class="pp-divider"></div>
+
+    <div class="pp-section reveal" id="data-collected">
+      <div class="section-topline"><span class="section-num">Section 02</span><div class="section-rule"></div></div>
+      <h2>Collecting Your Personal Data</h2>
+      <h3>Personal Data</h3>
+      <p>While using Our Service, We may ask You to provide Us with certain personally identifiable information that can be used to contact or identify You. This may include:</p>
+      <ul class="pp-list">
+        <li><span class="pp-list-arrow">→</span><div>Email address</div></li>
+        <li><span class="pp-list-arrow">→</span><div>First name and last name</div></li>
+        <li><span class="pp-list-arrow">→</span><div>Phone number</div></li>
+        <li><span class="pp-list-arrow">→</span><div>Usage Data</div></li>
+      </ul>
+      <h3>Usage Data</h3>
+      <p>Usage Data is collected automatically when using the Service. It may include information such as Your Device's Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Service that You visit, the time and date of Your visit, the time spent on those pages, unique device identifiers and other diagnostic data.</p>
+      <p>When You access the Service through a mobile device, We may collect certain information automatically, including the type of mobile device You use, Your mobile device unique ID, the IP address of Your mobile device, Your mobile operating system, and the type of mobile Internet browser You use.</p>
+      <h3>Information from the Application</h3>
+      <div class="highlight-box">
+        <p>While using Our Application, in order to provide features of Our Application, We may collect, with Your prior permission:</p>
+        <ul class="pp-list" style="margin-top:.6rem">
+          <li><span class="pp-list-arrow">→</span><div>Pictures and other information from your Device's camera and photo library</div></li>
+        </ul>
+        <p style="margin-top:.6rem;margin-bottom:0">You can enable or disable access to this information at any time through Your Device settings.</p>
+      </div>
+    </div>
+
+    <div class="pp-divider"></div>
+
+    <div class="pp-section reveal" id="use-of-data">
+      <div class="section-topline"><span class="section-num">Section 03</span><div class="section-rule"></div></div>
+      <h2>Use of Your Personal Data</h2>
+      <p>The Company may use Personal Data for the following purposes:</p>
+      <ul class="pp-list">
+        <li><span class="pp-list-arrow">→</span><div><strong>To provide and maintain our Service</strong>Including to monitor the usage of our Service.</div></li>
+        <li><span class="pp-list-arrow">→</span><div><strong>To manage Your Account</strong>To manage Your registration as a user of the Service.</div></li>
+        <li><span class="pp-list-arrow">→</span><div><strong>For the performance of a contract</strong>The development, compliance and undertaking of purchase contracts or any other contract with Us through the Service.</div></li>
+        <li><span class="pp-list-arrow">→</span><div><strong>To contact You</strong>By email, telephone calls, SMS, or other equivalent forms of electronic communication regarding updates or informative communications related to the functionalities, products or contracted services.</div></li>
+        <li><span class="pp-list-arrow">→</span><div><strong>To provide news and special offers</strong>About other goods, services and events which we offer that are similar to those you have already purchased or enquired about.</div></li>
+        <li><span class="pp-list-arrow">→</span><div><strong>To manage Your requests</strong>To attend and manage Your requests to Us.</div></li>
+        <li><span class="pp-list-arrow">→</span><div><strong>For business transfers</strong>We may use Your information to evaluate or conduct a merger, divestiture, restructuring, reorganization, or similar proceeding.</div></li>
+        <li><span class="pp-list-arrow">→</span><div><strong>For other purposes</strong>Such as data analysis, identifying usage trends, and evaluating and improving our Service, products, services, marketing and your experience.</div></li>
+      </ul>
+      <h3>Sharing Your Personal Information</h3>
+      <p>We may share Your personal information in the following situations:</p>
+      <ul class="pp-list">
+        <li><span class="pp-list-arrow">→</span><div><strong>With Service Providers</strong>To monitor and analyze the use of our Service, to contact You.</div></li>
+        <li><span class="pp-list-arrow">→</span><div><strong>For business transfers</strong>In connection with any merger, sale of Company assets, financing, or acquisition.</div></li>
+        <li><span class="pp-list-arrow">→</span><div><strong>With Affiliates</strong>We will require those affiliates to honor this Privacy Policy.</div></li>
+        <li><span class="pp-list-arrow">→</span><div><strong>With business partners</strong>To offer You certain products, services or promotions.</div></li>
+        <li><span class="pp-list-arrow">→</span><div><strong>With other users</strong>When You share personal information or otherwise interact in the public areas with other users, such information may be viewed by all users and may be publicly distributed outside.</div></li>
+        <li><span class="pp-list-arrow">→</span><div><strong>With Your consent</strong>We may disclose Your personal information for any other purpose with Your consent.</div></li>
+      </ul>
+    </div>
+
+    <div class="pp-divider"></div>
+
+    <div class="pp-section reveal" id="retention">
+      <div class="section-topline"><span class="section-num">Section 04</span><div class="section-rule"></div></div>
+      <h2>Retention of Your Personal Data</h2>
+      <p>The Company will retain Your Personal Data only for as long as is necessary for the purposes set out in this Privacy Policy. We will retain and use Your Personal Data to the extent necessary to comply with our legal obligations, resolve disputes, and enforce our legal agreements and policies.</p>
+      <p>The Company will also retain Usage Data for internal analysis purposes. Usage Data is generally retained for a shorter period of time, except when this data is used to strengthen the security or to improve the functionality of Our Service, or We are legally obligated to retain this data for longer time periods.</p>
+    </div>
+
+    <div class="pp-divider"></div>
+
+    <div class="pp-section reveal" id="transfer">
+      <div class="section-topline"><span class="section-num">Section 05</span><div class="section-rule"></div></div>
+      <h2>Transfer of Your Personal Data</h2>
+      <p>Your information, including Personal Data, is processed at the Company's operating offices and in any other places where the parties involved in the processing are located. It means that this information may be transferred to — and maintained on — computers located outside of Your state, province, country or other governmental jurisdiction where the data protection laws may differ from those from Your jurisdiction.</p>
+      <p>Your consent to this Privacy Policy followed by Your submission of such information represents Your agreement to that transfer. The Company will take all steps reasonably necessary to ensure that Your data is treated securely and in accordance with this Privacy Policy and no transfer of Your Personal Data will take place to an organization or a country unless there are adequate controls in place.</p>
+    </div>
+
+    <div class="pp-divider"></div>
+
+    <div class="pp-section reveal" id="delete">
+      <div class="section-topline"><span class="section-num">Section 06</span><div class="section-rule"></div></div>
+      <h2>Delete Your Personal Data</h2>
+      <p>You have the right to delete or request that We assist in deleting the Personal Data that We have collected about You.</p>
+      <p>Our Service may give You the ability to delete certain information about You from within the Service. You may update, amend, or delete Your information at any time by signing in to Your Account and visiting the account settings section that allows you to manage Your personal information. You may also contact Us to request access to, correct, or delete any personal information that You have provided to Us.</p>
+      <p>Please note, however, that We may need to retain certain information when we have a legal obligation or lawful basis to do so.</p>
+    </div>
+
+    <div class="pp-divider"></div>
+
+    <div class="pp-section reveal" id="disclosure">
+      <div class="section-topline"><span class="section-num">Section 07</span><div class="section-rule"></div></div>
+      <h2>Disclosure of Your Personal Data</h2>
+      <h4>Business Transactions</h4>
+      <p>If the Company is involved in a merger, acquisition or asset sale, Your Personal Data may be transferred. We will provide notice before Your Personal Data is transferred and becomes subject to a different Privacy Policy.</p>
+      <h4>Law Enforcement</h4>
+      <p>Under certain circumstances, the Company may be required to disclose Your Personal Data if required to do so by law or in response to valid requests by public authorities (e.g. a court or a government agency).</p>
+      <h4>Other Legal Requirements</h4>
+      <p>The Company may disclose Your Personal Data in the good faith belief that such action is necessary to:</p>
+      <ul class="pp-list">
+        <li><span class="pp-list-arrow">→</span><div>Comply with a legal obligation</div></li>
+        <li><span class="pp-list-arrow">→</span><div>Protect and defend the rights or property of the Company</div></li>
+        <li><span class="pp-list-arrow">→</span><div>Prevent or investigate possible wrongdoing in connection with the Service</div></li>
+        <li><span class="pp-list-arrow">→</span><div>Protect the personal safety of Users of the Service or the public</div></li>
+        <li><span class="pp-list-arrow">→</span><div>Protect against legal liability</div></li>
+      </ul>
+    </div>
+
+    <div class="pp-divider"></div>
+
+    <div class="pp-section reveal" id="security">
+      <div class="section-topline"><span class="section-num">Section 08</span><div class="section-rule"></div></div>
+      <h2>Security of Your Personal Data</h2>
+      <p>The security of Your Personal Data is important to Us, but remember that no method of transmission over the Internet, or method of electronic storage is 100% secure. While We strive to use commercially acceptable means to protect Your Personal Data, We cannot guarantee its absolute security.</p>
+    </div>
+
+    <div class="pp-divider"></div>
+
+    <div class="pp-section reveal" id="children">
+      <div class="section-topline"><span class="section-num">Section 09</span><div class="section-rule"></div></div>
+      <h2>Children's Privacy</h2>
+      <p>Our Service does not address anyone under the age of 13. We do not knowingly collect personally identifiable information from anyone under the age of 13. If You are a parent or guardian and You are aware that Your child has provided Us with Personal Data, please contact Us.</p>
+      <p>If We become aware that We have collected Personal Data from anyone under the age of 13 without verification of parental consent, We take steps to remove that information from Our servers. If We need to rely on consent as a legal basis for processing Your information and Your country requires consent from a parent, We may require Your parent's consent before We collect and use that information.</p>
+    </div>
+
+    <div class="pp-divider"></div>
+
+    <div class="pp-section reveal" id="links">
+      <div class="section-topline"><span class="section-num">Section 10</span><div class="section-rule"></div></div>
+      <h2>Links to Other Websites</h2>
+      <p>Our Service may contain links to other websites that are not operated by Us. If You click on a third party link, You will be directed to that third party's site. We strongly advise You to review the Privacy Policy of every site You visit.</p>
+      <p>We have no control over and assume no responsibility for the content, privacy policies or practices of any third party sites or services.</p>
+    </div>
+
+    <div class="pp-divider"></div>
+
+    <div class="pp-section reveal" id="changes">
+      <div class="section-topline"><span class="section-num">Section 11</span><div class="section-rule"></div></div>
+      <h2>Changes to This Privacy Policy</h2>
+      <p>We may update Our Privacy Policy from time to time. We will notify You of any changes by posting the new Privacy Policy on this page.</p>
+      <p>We will let You know via email and/or a prominent notice on Our Service, prior to the change becoming effective and update the "Last updated" date at the top of this Privacy Policy. You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.</p>
+    </div>
+
+    <div class="pp-divider"></div>
+
+    <div class="pp-section reveal" id="contact">
+      <div class="section-topline"><span class="section-num">Section 12</span><div class="section-rule"></div></div>
+      <div class="contact-card">
+        <div class="contact-eyebrow">Get in touch</div>
+        <div class="contact-title">Questions about<br/>this Policy?</div>
+        <p class="contact-sub">If you have any questions about this Privacy Policy, our team is happy to help. Reach out and we'll get back to you.</p>
+        <a class="contact-email-btn" href="mailto:projecteon05@gmail.com">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="2" stroke="white" stroke-width="1.5"/><path d="M2 8l10 7 10-7" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+          projecteon05@gmail.com
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="footer-left">
+    <img class="footer-logo-img" src="https://pub-1f514351881f45288b633b595c636fb4.r2.dev/eon_background.png" alt="EON"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+    <div class="footer-logo-fallback">E</div>
+    <div class="footer-wordmark">EON</div>
+  </div>
+  <div class="footer-slogan">Above · Beyond · Unlimited</div>
+  <div class="footer-copy">© 2026 EON Campus Platform. All rights reserved.</div>
+</footer>
+
+<script>
+(function(){
+  const c=document.getElementById('cursor'),r=document.getElementById('cursor-ring');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;c.style.left=mx+'px';c.style.top=my+'px';});
+  (function a(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;r.style.left=rx+'px';r.style.top=ry+'px';requestAnimationFrame(a);})();
+  document.querySelectorAll('a,button').forEach(el=>{
+    el.addEventListener('mouseenter',()=>{c.style.width='16px';c.style.height='16px';r.style.width='50px';r.style.height='50px';});
+    el.addEventListener('mouseleave',()=>{c.style.width='10px';c.style.height='10px';r.style.width='36px';r.style.height='36px';});
+  });
+  if('ontouchstart' in window){c.style.display='none';r.style.display='none';document.body.style.cursor='auto';}
+})();
+</script>
+
+<script>
+(function(){
+  const cv=document.getElementById('starfield'),ctx=cv.getContext('2d');
+  let W,H,stars=[],neb=[];
+  function resize(){W=cv.width=window.innerWidth;H=cv.height=window.innerHeight;build();}
+  function build(){
+    stars=[];
+    for(let i=0;i<240;i++)stars.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.3+.2,a:Math.random()*.6+.1,sp:Math.random()*.003+.0005,ph:Math.random()*Math.PI*2,tw:Math.random()>.55});
+    neb=[{x:W*.2,y:H*.3,r:W*.38,c:'rgba(79,110,247,.04)'},{x:W*.8,y:H*.7,r:W*.3,c:'rgba(201,168,76,.025)'},{x:W*.55,y:H*.45,r:W*.5,c:'rgba(79,110,247,.022)'}];
+  }
+  let t=0;
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    for(const n of neb){const g=ctx.createRadialGradient(n.x,n.y,0,n.x,n.y,n.r);g.addColorStop(0,n.c);g.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=g;ctx.fillRect(0,0,W,H);}
+    for(const s of stars){let a=s.a;if(s.tw)a*=(Math.sin(t*s.sp*200+s.ph)*.4+.6);ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fillStyle=`rgba(200,210,255,${a})`;ctx.fill();}
+    t+=.016;requestAnimationFrame(draw);
+  }
+  window.addEventListener('resize',resize);resize();draw();
+})();
+</script>
+
+<script>
+(function(){
+  const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');obs.unobserve(x.target);}}),{threshold:.06});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+})();
+</script>
+
+</body>
+</html>
